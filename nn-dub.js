@@ -11,7 +11,7 @@
 (function() {
     'use strict';
 
-    $('#header-global').append($('<font color=green id=nn-voters-1 size=12px></font><br><font color=red id=nn-voters-2 size=12px></font>'));
+    $('#header-global').append($('<span style="font-size:12px;"><font color=green id=nn-voters-1></font><br><font color=red id=nn-voters-2></font></span>'));
 
     var pidori = {};
     var id = '';
