@@ -46,5 +46,5 @@
         });
         $('#nn-voters-1').text(a[1].substr(2));
         $('#nn-voters-2').text(a[2].substr(2));
-    }, 1000);
+    }, 2500);
 })();
