@@ -16,6 +16,15 @@
     var pidori = {};
     var id = '';
 
+    function update() {
+        var a = [0, '', ''];
+        $.each(pidori, function(k, v) {
+            a[v] += ', ' + k;
+        });
+        $('#nn-voters-1').text(a[1].substr(2));
+        $('#nn-voters-2').text(a[2].substr(2));
+    }
+
     Dubtrack.Events.bind('realtime:room_playlist-dub', function(data) {
         console.log('[nn] new vote ', data);
         console.log('[nn]', data.dubtype, data.user.username);
@@ -26,25 +35,17 @@
         } else {
             console.log('[nn] WTF is this???', data.dubtype);
         }
+        update();
     });
 
     Dubtrack.Events.bind("realtime:room_playlist-update", function(data) {
-        //delete pidori;
+        console.log('[nn] clear', data);
         console.log('[nn]', id, data.song.songid);
         if (id != data.song.songid) {
             pidori = {};
             id = data.song.songid;
+            console.log('[nn] next song, wiping data');
         }
-        console.log('[nn] clear', data);
+        update();
     });
-
-    // update
-    setInterval(function() {
-        var a = [0, '', ''];
-        $.each(pidori, function(k, v) {
-            a[v] += ', ' + k;
-        });
-        $('#nn-voters-1').text(a[1].substr(2));
-        $('#nn-voters-2').text(a[2].substr(2));
-    }, 2500);
 })();
