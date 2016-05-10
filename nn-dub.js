@@ -78,8 +78,32 @@
         }
     };
     
+    var nn_roomJoinLeave = {
+        fun: function(user, act) {
+            $('.chat-main').append($('<li class=nn_roomJoinLeave></li>').text(user + ' ' + act + ' the room.'));
+        },
+        
+        hide: function() {
+            $('.nn_roomJoinLeave').hide();
+        },
+        
+        init: function() {
+            Dubtrack.Events.on('realtime:user-join', function(data) {
+                console.log('[nn] user-join', data);
+                nn_roomJoinLeave.fun(data.user.username, 'joined');
+            });
+            
+            Dubtrack.Events.on('realtime:user-leave', function(data) {
+                console.log('[nn] user-leave', data);
+                nn_roomJoinLeave.fun(data.user.username, 'left');
+            });
+        }
+    };
+    
     nn_votersLine.init();
+    nn_roomJoinLeave.init();
     
     window.nn_lib = nn_lib;
     window.nn_votersLine = nn_votersLine;
+    window.nn_roomJoinLeave = nn_roomJoinLeave;
 })();
