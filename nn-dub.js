@@ -101,7 +101,7 @@
     };
     
     nn_votersLine.init();
-    nn_roomJoinLeave.init();
+    //nn_roomJoinLeave.init();
     
     window.nn_lib = nn_lib;
     window.nn_votersLine = nn_votersLine;
