@@ -76,6 +76,7 @@
                 console.log('[nn] grab', data.user.username);
                 if (nn_votersLine.grabs.indexOf(data.user.username) == -1) {
                     nn_votersLine.grabs.push(data.user.username);
+                    nn_votersLine.update();
                 }   
             } catch (e) {
                 console.error('votes ev2', e);
