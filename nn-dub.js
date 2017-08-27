@@ -50,13 +50,13 @@
 
             s = '';
             for (i = 0; i < l[1].length; ++i) {
-                s += ', ' + l[1][i] + ' (' + nn_votersLine.streak[l[1][i]] + ')';
+                s += ', ' + l[1][i] + '\u00a0(' + nn_votersLine.streak[l[1][i]] + ')';
             }
             $('#nn-voters-1').text(s.slice(2));
 
             s = '';
             for (i = 0; i < l[2].length; ++i) {
-                s += ', ' + l[2][i] + ' (' + nn_votersLine.streak[l[2][i]] + ')';
+                s += ', ' + l[2][i] + '\u00a0(' + nn_votersLine.streak[l[2][i]] + ')';
             }
             $('#nn-voters-2').text(s.slice(2));
             
@@ -136,10 +136,10 @@
         init: function() {
             $('.header-center-logo').zIndex(0);
             $('#header-global').append($(
-                '<span style="font-size: 14px; position: absolute; right: 320px; left: 270px; top:5px;">' +
-                    '<font style="color:green; background:rgba(0, 0, 0, .5);" id=nn-voters-1></font><br>' +
-                    '<font style="color:red; background:rgba(0, 0, 0, .5);" id=nn-voters-2></font><br>'+
-                    '<font style="color:yellow; background:rgba(0, 0, 0, .5);" id=nn-voters-3></font>'+
+                '<span style="font-size: 14px; position: absolute; right: 320px; left: 270px; top:5px; pointer-events: none;">' +
+                    '<font style="color:green; background:rgba(0, 0, 0, .5); pointer-events: all;" id=nn-voters-1></font><br>' +
+                    '<font style="color:red; background:rgba(0, 0, 0, .5); pointer-events: all;" id=nn-voters-2></font><br>'+
+                    '<font style="color:yellow; background:rgba(0, 0, 0, .5); pointer-events: all;" id=nn-voters-3></font>'+
                 '</span>')
             );
             Dubtrack.Events.on('realtime:room_playlist-dub', nn_votersLine.ev1);
