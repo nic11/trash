@@ -134,7 +134,7 @@
         },
 
         init: function() {
-            $('.header-center-logo').zIndex(0);
+            $('.header-center-logo').css('z-index', 0);
             $('#header-global').append($(
                 '<span style="font-size: 14px; position: absolute; right: 320px; left: 270px; top:5px; pointer-events: none;">' +
                     '<font style="color:green; background:rgba(0, 0, 0, .5); pointer-events: all;" id=nn-voters-1></font><br>' +
